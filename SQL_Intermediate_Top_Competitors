@@ -1,0 +1,20 @@
+
+
+SELECT  
+	 H.hacker_id
+	,H.name
+	--,S.challenge_id
+	--,S.score SubmissionScore
+	--,D.score DifficultyWiseScore
+	--,C.difficulty_level
+FROM [dbo].[Hackers_Table] H
+JOIN [dbo].[Submission_Table] S
+ON H.hacker_id = S.hacker_id
+JOIN [dbo].[Challenge_Table] C
+ON S.challenge_id = C.challenge_id
+JOIN [dbo].[Difficulty_Table] D
+ON C.difficulty_level = D.difficulty_level
+where S.score = D.score and C.difficulty_level = D.difficulty_level
+group by H.hacker_id,H.[name]
+having count(H.hacker_id) > 1
+order by  COUNT(H.hacker_id) desc, H.hacker_id asc; 
