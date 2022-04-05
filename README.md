@@ -1,1 +1,1 @@
-# HackerrankSQL
+# HackerRankSQL
