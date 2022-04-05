@@ -1,3 +1,5 @@
+---------The Report Problem ------------
+
 SELECT 
   CASE
    WHEN G.Grade > 7 THEN S.Name
